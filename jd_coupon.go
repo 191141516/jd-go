@@ -4,7 +4,7 @@ package jd
 type CouponService interface {
 	// 优惠券领取情况查询接口【申请】
 	//    文档: https://union.jd.com/openplatform/api/10423
-	CouponQuery([]*CouponQueryRequest) (*CouponQueryResult, error)
+	CouponQuery(CouponQuerysRequest) (*CouponQueryResult, error)
 	// 优惠券领取情况查询接口【申请】
 	//    文档: https://union.jd.com/openplatform/api/10423
 	CouponQueryByUrls(urls ...string) (*CouponQueryResult, error)
@@ -42,28 +42,26 @@ func newCouponService(service Service) CouponService {
 
 // 优惠券领取情况查询接口【申请】
 //    文档: https://union.jd.com/openplatform/api/10423
-func (cou *CouponServiceImpl) CouponQuery(request []*CouponQueryRequest) (*CouponQueryResult, error) {
+func (cou *CouponServiceImpl) CouponQuery(request CouponQuerysRequest) (*CouponQueryResult, error) {
 	err := cou.service.CheckRequiredParameters(request)
 	if err != nil {
 		return nil, err
 	}
-	param := map[string]interface{}{}
-	param["couponUrls"] = request
 	var res CouponQueryResult
-	err = cou.service.Do(&res, CouponQuery, param)
+	err = cou.service.Request(&res, NewTParam(CouponQuery, request))
 	return &res, err
 }
 
 // 优惠券领取情况查询接口【申请】
 //    文档: https://union.jd.com/openplatform/api/10423
 func (cou *CouponServiceImpl) CouponQueryByUrls(urls ...string) (*CouponQueryResult, error) {
-	var arr []*CouponQueryRequest
+	var req CouponQuerysRequest
 	for _, url := range urls {
-		arr = append(arr, &CouponQueryRequest{
+		req.CouponUrls = append(req.CouponUrls, &CouponQueryRequest{
 			CouponUrl: url,
 		})
 	}
-	return cou.CouponQuery(arr)
+	return cou.CouponQuery(req)
 }
 
 // 优惠券领取情况查询接口【申请】
@@ -76,7 +74,7 @@ func (cou *CouponServiceImpl) CouponQueryByList(urls ...string) (*CouponQueryRes
 // 优惠券领取情况查询接口【申请】
 //    文档: https://union.jd.com/openplatform/api/10423
 func (cou *CouponServiceImpl) CouponQueryResult(request []*CouponQueryRequest) ([]byte, error) {
-	res, err := cou.CouponQuery(request)
+	res, err := cou.CouponQuery(CouponQuerysRequest{CouponUrls: request})
 	return cou.service.GetResult(res, err)
 }
 

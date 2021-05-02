@@ -72,7 +72,7 @@ func TestCouponServiceImpl_CouponQuery(t *testing.T) {
 	service := NewJdService(config.AppKey, config.SecretKey)
 	couponService := service.GetCouponService()
 
-	res, err := couponService.CouponQueryByList("https://coupon.m.jd.com/coupons/show.action?linkKey=AAROH_xIpeffAs_-naABEFoe_GDEC4dVfVg03Fj3h8FXrH2uMMS7Y_UectztQMsMX3S6kCZX2ZFNkNK1ppUHnuinop15Fw")
+	res, err := couponService.CouponQueryByUrls("https://coupon.m.jd.com/coupons/show.action?linkKey=AAROH_xIpeffAs_-naABEFoe_GDEC4dVfVg03Fj3h8FXrH2uMMS7Y_UectztQMsMX3S6kCZX2ZFNkNK1ppUHnuinop15Fw")
 	t.Log(res, err)
 }
 

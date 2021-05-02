@@ -65,6 +65,7 @@ const (
 	PromotionCommonGet       = Method(jd_method.PromotionCommonGet)       // 网站/APP获取推广链接接口
 	PromotionBysubunionidGet = Method(jd_method.PromotionBysubunionidGet) // 社交媒体获取推广链接接口【申请】
 	PromotionByunionidGet    = Method(jd_method.PromotionByunionidGet)    // 通过小程序获取推广链接【申请】
+	PromotionAppletGet       = Method(jd_method.PromotionAppletGet)       // 通过小程序获取推广链接【申请】
 )
 const (
 	PromotionCommonGetResponse       = "jd_union_open_promotion_common_get_response"       // 网站/APP获取推广链接接口

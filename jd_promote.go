@@ -59,10 +59,8 @@ func (promo *PromotionServiceImpl) PromotionCommonGet(request *PromoteCommonGetR
 	if err != nil {
 		return nil, err
 	}
-	param := map[string]interface{}{}
-	param["promotionCodeReq"] = request
 	var res PromoteCommonGetResult
-	err = promo.service.Do(&res, PromotionCommonGet, param)
+	err = promo.service.Request(&res, NewTParam(PromotionCommonGet, request))
 	return &res, err
 }
 
@@ -73,10 +71,8 @@ func (promo *PromotionServiceImpl) PromotionBysubunionidGet(request *PromotionBy
 	if err != nil {
 		return nil, err
 	}
-	param := map[string]interface{}{}
-	param["promotionCodeReq"] = request
 	var res PromotionBysubunionidGetResult
-	err = promo.service.Do(&res, PromotionBysubunionidGet, param)
+	err = promo.service.Request(&res, NewTParam(PromotionBysubunionidGet, request))
 	return &res, err
 }
 
@@ -87,10 +83,8 @@ func (promo *PromotionServiceImpl) PromotionByunionidGet(request *PromotionByuni
 	if err != nil {
 		return nil, err
 	}
-	param := map[string]interface{}{}
-	param["promotionCodeReq"] = request
 	var res PromotionByunionidGetResult
-	err = promo.service.Do(&res, PromotionByunionidGet, param)
+	err = promo.service.Request(&res, NewTParam(PromotionByunionidGet, request))
 	return &res, err
 }
 
@@ -101,10 +95,8 @@ func (promo *PromotionServiceImpl) PromotionAppletGet(request *PromotionAppletGe
 	if err != nil {
 		return nil, err
 	}
-	param := map[string]interface{}{}
-	param["promotionCodeReq"] = request
 	var res PromotionAppletGetResult
-	err = promo.service.Do(&res, PromotionAppletGet, param)
+	err = promo.service.Request(&res, NewTParam(PromotionAppletGet, request))
 	return &res, err
 }
 
@@ -143,10 +135,8 @@ func (promo *PromotionServiceImpl) PromotionCommonGetMap(request *PromoteCommonG
 	if err != nil {
 		return nil, err
 	}
-	param := map[string]interface{}{}
-	param["promotionCodeReq"] = request
 	var res = make(map[string]interface{})
-	err = promo.service.Do(&res, PromotionCommonGet, param)
+	err = promo.service.Request(&res, NewTParam(PromotionCommonGet, request))
 	if err != nil {
 		return nil, err
 	}
@@ -166,10 +156,8 @@ func (promo *PromotionServiceImpl) PromotionBysubunionidGetMap(request *Promotio
 	if err != nil {
 		return nil, err
 	}
-	param := map[string]interface{}{}
-	param["promotionCodeReq"] = request
 	var res map[string]interface{}
-	err = promo.service.Do(&res, PromotionBysubunionidGet, param)
+	err = promo.service.Request(&res, NewTParam(PromotionBysubunionidGet, request))
 	if err != nil {
 		return nil, err
 	}
@@ -189,10 +177,8 @@ func (promo *PromotionServiceImpl) PromotionByunionidGetMap(request *PromotionBy
 	if err != nil {
 		return nil, err
 	}
-	param := map[string]interface{}{}
-	param["promotionCodeReq"] = request
 	var res map[string]interface{}
-	err = promo.service.Do(&res, PromotionByunionidGet, param)
+	err = promo.service.Request(&res, NewTParam(PromotionByunionidGet, request))
 	if err != nil {
 		return nil, err
 	}
@@ -212,10 +198,8 @@ func (promo *PromotionServiceImpl) PromotionAppletGetMap(request *PromotionApple
 	if err != nil {
 		return nil, err
 	}
-	param := map[string]interface{}{}
-	param["promotionCodeReq"] = request
 	var res map[string]interface{}
-	err = promo.service.Do(&res, PromotionAppletGet, param)
+	err = promo.service.Request(&res, NewTParam(PromotionAppletGet, request))
 	if err != nil {
 		return nil, err
 	}

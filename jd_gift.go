@@ -62,10 +62,8 @@ func (gift *GiftServiceImpl) CouponGiftGet(request *CouponGiftGetRequest) (*Coup
 	if err != nil {
 		return nil, err
 	}
-	param := map[string]interface{}{}
-	param["couponReq"] = request
 	var res CouponGiftGetResult
-	err = gift.service.Do(&res, CouponGiftGet, param)
+	err = gift.service.Request(&res, NewTParam(CouponGiftGet, request))
 	return &res, err
 }
 
@@ -76,10 +74,8 @@ func (gift *GiftServiceImpl) CouponGiftStop(request *CouponGiftStopRequest) (*Co
 	if err != nil {
 		return nil, err
 	}
-	param := map[string]interface{}{}
-	param["couponReq"] = request
 	var res CouponGiftStopResult
-	err = gift.service.Do(&res, CouponGiftStop, param)
+	err = gift.service.Request(&res, NewTParam(CouponGiftStop, request))
 	return &res, err
 }
 
@@ -98,10 +94,8 @@ func (gift *GiftServiceImpl) StatisticGiftCouponQuery(request *StatisticGiftCoup
 	if err != nil {
 		return nil, err
 	}
-	param := map[string]interface{}{}
-	param["effectDataReq"] = request
 	var res StatisticGiftCouponQueryResult
-	err = gift.service.Do(&res, StatisticGiftCouponQuery, param)
+	err = gift.service.Request(&res, NewTParam(StatisticGiftCouponQuery, request))
 	return &res, err
 }
 
@@ -149,10 +143,8 @@ func (gift *GiftServiceImpl) CouponGiftGetMap(request *CouponGiftGetRequest) (ma
 	if err != nil {
 		return nil, err
 	}
-	param := map[string]interface{}{}
-	param["couponReq"] = request
 	var res map[string]interface{}
-	err = gift.service.Do(&res, CouponGiftGet, param)
+	err = gift.service.Request(&res, NewTParam(CouponGiftGet, request))
 	if err != nil {
 		return nil, err
 	}
@@ -172,10 +164,8 @@ func (gift *GiftServiceImpl) CouponGiftStopMap(request *CouponGiftStopRequest) (
 	if err != nil {
 		return nil, err
 	}
-	param := map[string]interface{}{}
-	param["couponReq"] = request
 	var res map[string]interface{}
-	err = gift.service.Do(&res, CouponGiftStop, param)
+	err = gift.service.Request(&res, NewTParam(CouponGiftStop, request))
 	if err != nil {
 		return nil, err
 	}
@@ -203,10 +193,8 @@ func (gift *GiftServiceImpl) StatisticGiftCouponQueryMap(request *StatisticGiftC
 	if err != nil {
 		return nil, err
 	}
-	param := map[string]interface{}{}
-	param["effectDataReq"] = request
 	var res map[string]interface{}
-	err = gift.service.Do(&res, StatisticGiftCouponQuery, param)
+	err = gift.service.Request(&res, NewTParam(StatisticGiftCouponQuery, request))
 	if err != nil {
 		return nil, err
 	}

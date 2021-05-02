@@ -467,6 +467,12 @@ func (r *PromotionAppletGetResult) GetResult() []byte {
 	return []byte(str)
 }
 
+type CouponQuerysRequest struct {
+	// 必填...
+
+	CouponUrls []*CouponQueryRequest `json:"couponUrls"` // 优惠券链接
+}
+
 type CouponQueryRequest struct {
 	// 必填...
 
